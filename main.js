@@ -2,7 +2,7 @@
 let playSound = (event) => {
   let key = document.querySelector(`div[data-key='${event.keyCode}']`);
   let sound = document.querySelector(`audio[data-key='${event.keyCode}']`);
-  if (!sound) return; //ends the function if a key doesn't do anything
+  if (!sound || !key) return; //ends the function if a key doesn't do anything
   sound.currentTime = 0; //Rewinds the audio so that when clicked repeatedly it works
   sound.play();
   key.classList.add("playing");
